@@ -3,28 +3,6 @@
 This project performs data cleansing and pre-processing of cough audio files and implements a deep learning model for their classification on whether the individual on each audio recording had COVID-19 or not.
 
 
-## Getting started
-
-Create and activate virtual environment:
-```
-python3 -m venv [name_of_venv]
-source [name_of_venv]/bin/activate
-```
-
-Clone repository:
-```
-git clone https://github.com/atsiakkas/rl_vfa.git
-```
-
-Install requirements:
-```
-cd rl_vfa
-pip install -e .
-```
-<br/>
-
-
-
 ## Project
 
 https://github.com/atsiakkas/covid19_cough_classification<br/>
@@ -36,33 +14,26 @@ https://github.com/atsiakkas/covid19_cough_classification<br/>
 **Dataset**: Contains the raw and processed data files
 
 **EDA & Pre-processing**: Contains code for performing exploratory data analysis and data pre-processing including:
+  1. Conversion to .wav format
+  2. Filtering cough_detected < 0.8.
+  3. Filtering "symptomatic" and unlabelled.
+  4. Downsampling to 16khz.
+  5. Standardising to 10 seconds by padding/cropping.
+  6. Augmenting the binary labels and saving into a single .npz file.
+  7. Importing data into a tensorflow format.
 
-
-**function_approximators**: Defines the classes of the function approximation models and of the replay buffer: ParametricModel, NeuralNetwork, LinearModel, NonParametricModel, DecisionTree, RandomForest, ExtraTrees, GradientBoostingTrees, SupportVectorRegressor, KNeighboursRegressor, GaussianProcess, eGaussianProcess, OnlineGaussianProcess
-
-**plots**: Scripts (jupyter notebooks) for producing the plots used in the report and saved plots.
-
-**results**: Saved output of runs (csv files).
-
-**train**: Scripts (jupyter notebooks and .py files) for training and evaluation.
-
-**utils**: Defines the training and plotting utility functions.<br/>
-<br/>
+**Experiments**: Defines:
+  1. MelSpectrogram layer: transforms the audio data into spectrograms allowing the application of a Convolutional Neural Network.
+  2. SpecAugment layer: used as an augmentation technique to reduce model overfitting and smooth optimisation process.
+  3. train function: Defines main model (based on the ResNet50 architeture) and performs training and evaluation.
 
 
 ## Key references
 
-Reinforcement Learning algorithms: Richard S. Sutton and Andrew G. Barto. 2018. Reinforcement learning: An introduction. MIT press.
+He, K., Zhang, X., Ren, S. and Sun, J., 2016. Deep residual learning for image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 770-778).
 
-Fitted-Q Iteration: Damien Ernst, Pierre Geurts, and Louis Wehenkel. 2005. Tree-based batch mode
-reinforcement learning. Journal of Machine Learning Research 6 (2005).
+Park, D.S., Chan, W., Zhang, Y., Chiu, C.C., Zoph, B., Cubuk, E.D. and Le, Q.V., 2019. Specaugment: A simple data augmentation method for automatic speech recognition. arXiv preprint arXiv:1904.08779.
 
-Online Gaussian Process: Lehel Csató and Manfred Opper. 2002. Sparse on-line Gaussian processes. Neural
-computation 14, 3 (2002), 641–668.
+Orlandic, L., Teijeiro, T. and Atienza, D., 2021. The COUGHVID crowdsourcing dataset, a corpus for the study of large-scale cough analysis algorithms. Scientific Data, 8(1), pp.1-10.
 
-Deep Q-Network: Volodymyr Mnih, Koray Kavukcuoglu, David Silver, Andrei A. Rusu, Joel Veness,
-Marc G. Bellemare, Alex Graves, Martin Riedmiller, Andreas K. Fidjeland, Georg
-Ostrovski, Stig Petersen, Charles Beattie, Amir Sadik, Ioannis Antonoglou, Helen
-King, Dharshan Kumaran, Daan Wierstra, Shane Legg, and Demis Hassabis. 2015.
-Human-level control through deep reinforcement learning. Nature 518, 7540
-(2015). https://doi.org/10.1038/nature14236
+Sharma, N., Krishnan, P., Kumar, R., Ramoji, S., Chetupalli, S.R., Ghosh, P.K. and Ganapathy, S., 2020. Coswara--a database of breathing, cough, and voice sounds for COVID-19 diagnosis. arXiv preprint arXiv:2005.10548.
