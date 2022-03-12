@@ -34,7 +34,7 @@ https://github.com/atsiakkas/covid19_cough_classification<br/>
 
 [2] Sharma, N., Krishnan, P., Kumar, R., Ramoji, S., Chetupalli, S.R., Ghosh, P.K. and Ganapathy, S., 2020. Coswara--a database of breathing, cough, and voice sounds for COVID-19 diagnosis. arXiv preprint arXiv:2005.10548.
 
-[3] https://c4science.ch/diffusion/10770/
+[3] Orlandic, L., Teijeiro, T. and Atienza, D., 2021. Source code. https://c4science.ch/diffusion/10770/
 
 [4] McFee, B., Raffel, C., Liang, D., Ellis, D.P., McVicar, M., Battenberg, E. and Nieto, O., 2015, July. librosa: Audio and music signal analysis in python. In Proceedings of the 14th python in science conference (Vol. 8, pp. 18-25).
 
